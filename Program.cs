@@ -6,47 +6,48 @@ namespace OOP2
     {
         static void Main(string[] args)
         {
-            int playerX = 2;
-            int playerY = 5;
+            int playerPlayerX = 2;
+            int playerPlayerY = 5;
 
             Render render = new Render();
 
-            render.showPlaer(playerX, playerY);
+            render.ShowPlaer(playerPlayerX, playerPlayerY);
 
             Console.ReadKey();
         }
     }
 
-    class Plaer
+    class Player
     {
-        public int positionX { get; private set; }
-        public int positionY { get; private set; }
-
         private int maxLimitX = 50;
         private int minLimitX = 0;
         private int maxLimitY = 50;
         private int minLimitY = 0;
+        public int PositionPlayerX { get; private set; }
+        public int PositionPlayerY { get; private set; }
 
-       public Plaer(int x, int y)
+        
+
+       public Player(int positionPlaerX, int positionPlaerY)
         {
-            if(x>minLimitX&x<maxLimitX)
+            if(positionPlaerX>minLimitX&positionPlaerX<maxLimitX)
             {
-                positionX = x;
+                PositionPlayerX = positionPlaerX;
             }
-            if (y > minLimitY & y < maxLimitY) 
+            if (positionPlaerY > minLimitY & positionPlaerY < maxLimitY) 
             {
-                positionY = y;
+                PositionPlayerY = positionPlaerY;
             }
         }
     }
 
     class Render
     {
-        public void showPlaer(int X, int Y, char plaer = '@')
+        public void ShowPlaer(int positionPlaer, int positionPlaerY, char plaer = '@')
         {
-            Plaer position = new Plaer(X,Y);
+            Player position = new Player(positionPlaer,positionPlaerY);
 
-            Console.SetCursorPosition(position.positionX, position.positionY);
+            Console.SetCursorPosition(position.PositionPlayerX, position.PositionPlayerY);
             Console.Write(plaer);
         }
     }
