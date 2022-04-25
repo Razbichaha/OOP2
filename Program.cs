@@ -2,18 +2,16 @@
 
 namespace OOP2
 {
-//    Создать класс игрока, у которого есть поля с его положением в x,y.
-//Создать класс отрисовщик, с методом, который отрисует игрока.
-
-//Попрактиковаться в работе со свойствами.
-
     class Program
     {
         static void Main(string[] args)
         {
+            int playerX = 2;
+            int playerY = 5;
 
+            Render render = new Render();
 
-
+            render.showPlaer(playerX, playerY);
 
             Console.ReadKey();
         }
@@ -21,15 +19,35 @@ namespace OOP2
 
     class Plaer
     {
-        private int positionX { get; set; }
-        private int positionY { get; set; }
+        public int positionX { get; private set; }
+        public int positionY { get; private set; }
 
+        private int maxLimitX = 50;
+        private int minLimitX = 0;
+        private int maxLimitY = 50;
+        private int minLimitY = 0;
 
+       public Plaer(int x, int y)
+        {
+            if(x>minLimitX&x<maxLimitX)
+            {
+                positionX = x;
+            }
+            if (y > minLimitY & y < maxLimitY) 
+            {
+                positionY = y;
+            }
+        }
     }
 
     class Render
     {
+        public void showPlaer(int X, int Y, char plaer = '@')
+        {
+            Plaer position = new Plaer(X,Y);
 
-
+            Console.SetCursorPosition(position.positionX, position.positionY);
+            Console.Write(plaer);
+        }
     }
 }
