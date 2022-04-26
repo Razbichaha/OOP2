@@ -12,7 +12,9 @@ namespace OOP2
 
             Player player = new Player(playerPositionX,playerPositionY);
 
-            player.Show(playerSkin);
+            Render render = new Render();
+
+            render.ShowPlayer(player.PositionX, player.PositionY,playerSkin);
 
             Console.ReadKey();
         }
@@ -21,31 +23,24 @@ namespace OOP2
     class Player
     {
 
-        private int maxWidth = 50;
-        private int minWidth = 0;
-        private int maxHeight = 50;
-        private int minHeight = 0;
+        private int _maxWidth = 50;
+        private int _minWidth = 0;
+        private int _maxHeight = 50;
+        private int _minHeight = 0;
 
         public int PositionX { get; private set; }
         public int PositionY { get; private set; }
 
        public Player(int positionPlaerX, int positionPlaerY)
         {
-            if (positionPlaerX > minWidth & positionPlaerX < maxWidth) 
+            if (positionPlaerX > _minWidth & positionPlaerX < _maxWidth) 
             {
                 PositionX = positionPlaerX;
             }
-            if (positionPlaerY > minHeight & positionPlaerY < maxHeight) 
+            if (positionPlaerY > _minHeight & positionPlaerY < _maxHeight) 
             {
                 PositionY = positionPlaerY;
             }
-        }
-
-        public  void Show(char player)
-        {
-            Render render = new Render();
-
-            render.ShowPlayer(PositionX, PositionY,player);
         }
     }
 
