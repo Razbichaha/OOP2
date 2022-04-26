@@ -6,12 +6,12 @@ namespace OOP2
     {
         static void Main(string[] args)
         {
-            int playerPlayerX = 2;
-            int playerPlayerY = 5;
+            int playerPositionX = 2;
+            int playerPositionY = 5;
 
             Render render = new Render();
 
-            render.ShowPlaer(playerPlayerX, playerPlayerY);
+            render.ShowPlayer(playerPositionX, playerPositionY);
 
             Console.ReadKey();
         }
@@ -26,11 +26,9 @@ namespace OOP2
         public int PositionPlayerX { get; private set; }
         public int PositionPlayerY { get; private set; }
 
-        
-
        public Player(int positionPlaerX, int positionPlaerY)
         {
-            if(positionPlaerX>minLimitX&positionPlaerX<maxLimitX)
+            if (positionPlaerX > minLimitX & positionPlaerX < maxLimitX) 
             {
                 PositionPlayerX = positionPlaerX;
             }
@@ -43,12 +41,12 @@ namespace OOP2
 
     class Render
     {
-        public void ShowPlaer(int positionPlaer, int positionPlaerY, char plaer = '@')
+        public void ShowPlayer(int positionX, int positionY, char player = '@')
         {
-            Player position = new Player(positionPlaer,positionPlaerY);
+            Player position = new Player(positionX,positionY);
 
             Console.SetCursorPosition(position.PositionPlayerX, position.PositionPlayerY);
-            Console.Write(plaer);
+            Console.Write(player);
         }
     }
 }
