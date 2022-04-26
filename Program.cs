@@ -19,22 +19,24 @@ namespace OOP2
 
     class Player
     {
-        private int maxLimitX = 50;
-        private int minLimitX = 0;
-        private int maxLimitY = 50;
-        private int minLimitY = 0;
-        public int PositionPlayerX { get; private set; }
-        public int PositionPlayerY { get; private set; }
+
+        private int maxWidth = 50;
+        private int minWidth = 0;
+        private int maxHeight = 50;
+        private int minHeight = 0;
+
+        public int PositionX { get; private set; }
+        public int PositionY { get; private set; }
 
        public Player(int positionPlaerX, int positionPlaerY)
         {
-            if (positionPlaerX > minLimitX & positionPlaerX < maxLimitX) 
+            if (positionPlaerX > minWidth & positionPlaerX < maxWidth) 
             {
-                PositionPlayerX = positionPlaerX;
+                PositionX = positionPlaerX;
             }
-            if (positionPlaerY > minLimitY & positionPlaerY < maxLimitY) 
+            if (positionPlaerY > minHeight & positionPlaerY < maxHeight) 
             {
-                PositionPlayerY = positionPlaerY;
+                PositionY = positionPlaerY;
             }
         }
     }
@@ -45,7 +47,7 @@ namespace OOP2
         {
             Player position = new Player(positionX,positionY);
 
-            Console.SetCursorPosition(position.PositionPlayerX, position.PositionPlayerY);
+            Console.SetCursorPosition(position.PositionX, position.PositionY);
             Console.Write(player);
         }
     }
