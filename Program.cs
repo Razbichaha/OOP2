@@ -8,10 +8,11 @@ namespace OOP2
         {
             int playerPositionX = 2;
             int playerPositionY = 5;
+            char player = '@';
 
             Render render = new Render();
 
-            render.ShowPlayer(playerPositionX, playerPositionY);
+            render.ShowPlayer(playerPositionX, playerPositionY,player);
 
             Console.ReadKey();
         }
