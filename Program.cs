@@ -8,11 +8,11 @@ namespace OOP2
         {
             int playerPositionX = 2;
             int playerPositionY = 5;
-            char player = '@';
+            char playerSkin = '@';
 
-            Render render = new Render();
+            Player player = new Player(playerPositionX,playerPositionY);
 
-            render.ShowPlayer(playerPositionX, playerPositionY,player);
+            player.Show(playerSkin);
 
             Console.ReadKey();
         }
@@ -40,15 +40,20 @@ namespace OOP2
                 PositionY = positionPlaerY;
             }
         }
+
+        public  void Show(char player)
+        {
+            Render render = new Render();
+
+            render.ShowPlayer(PositionX, PositionY,player);
+        }
     }
 
-    class Render
+    public class Render
     {
         public void ShowPlayer(int positionX, int positionY, char player = '@')
         {
-            Player position = new Player(positionX,positionY);
-
-            Console.SetCursorPosition(position.PositionX, position.PositionY);
+            Console.SetCursorPosition(positionX, positionY);
             Console.Write(player);
         }
     }
